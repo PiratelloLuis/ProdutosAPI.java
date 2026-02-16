@@ -4,6 +4,7 @@ import io.github.piratelloluis.produtosapi.models.Product;
 import io.github.piratelloluis.produtosapi.repository.ProductRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -46,5 +47,16 @@ public class ProductController {
         productRepository.save(product);
         return product;
     }
+
+    @GetMapping
+    public List<Product> SearchProductByParams(@RequestParam("name") String name){
+        return productRepository.findByName(name);
+    }
+
+    @GetMapping("/products")
+    public List<Product> ListProducts(){
+        return productRepository.findAll();
+    }
+
 
 }
