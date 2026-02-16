@@ -1,13 +1,32 @@
 package io.github.piratelloluis.produtosapi.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 //POJO - Plain Old Java Project
+@Entity
+@Table(name = "produto")
 public class Product {
 
+    @Id
+    @Column
     private String id;
+
+    @Column
     private String name;
+
+    @Column
     private String description;
+
+    @Column
     private double price;
+
+    @Column
     private int quantity;
+
+    //Getters and Setters
 
     public String getId() {
         return id;
@@ -49,6 +68,8 @@ public class Product {
         this.quantity = quantity;
     }
 
+
+    //To string
     @Override
     public String toString() {
         return "Product{" +
